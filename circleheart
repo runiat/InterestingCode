@@ -1,0 +1,34 @@
+import turtle
+import math
+
+t = turtle.Turtle()
+
+def circlepoints(num,radius):
+''' 
+num is an integer. the number of points on a circle
+radius is the radius of the circle
+return: a list with num elements. each is a list of size 2 with the x and y cooidinates
+    points=[]
+    angle=2*math.pi/num
+    for t in range(num):
+        points.append([round(radius*math.cos(angle*t),1),round(radius*math.sin(angle*t),1)])
+    return points
+
+def main():
+    numPoints=100
+    points=circlepoints(numPoints,100)
+    t.hideturtle()
+    t.up()
+    t.goto(points[0])
+    t.down()
+    # t.shape("turtle")
+    for i in range(numPoints):
+        t.up()
+        t.goto(points[i])
+        t.down()
+        t.goto(points[i*2%numPoints])
+    #for i in range(numPoints):
+    #    t.goto(points[i])
+
+
+main()
